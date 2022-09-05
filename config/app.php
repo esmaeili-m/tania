@@ -69,7 +69,7 @@ return [
     |
     */
 
-    'timezone' => 'UTC',
+    'timezone' => 'Asia/Tehran',
 
     /*
     |--------------------------------------------------------------------------
@@ -127,24 +127,6 @@ return [
 
     /*
     |--------------------------------------------------------------------------
-    | Maintenance Mode Driver
-    |--------------------------------------------------------------------------
-    |
-    | These configuration options determine the driver used to determine and
-    | manage Laravel's "maintenance mode" status. The "cache" driver will
-    | allow maintenance mode to be controlled across multiple machines.
-    |
-    | Supported drivers: "file", "cache"
-    |
-    */
-
-    'maintenance' => [
-        'driver' => 'file',
-        // 'store'  => 'redis',
-    ],
-
-    /*
-    |--------------------------------------------------------------------------
     | Autoloaded Service Providers
     |--------------------------------------------------------------------------
     |
@@ -181,6 +163,7 @@ return [
         Illuminate\Translation\TranslationServiceProvider::class,
         Illuminate\Validation\ValidationServiceProvider::class,
         Illuminate\View\ViewServiceProvider::class,
+        Kris\LaravelFormBuilder\FormBuilderServiceProvider::class,
 
         /*
          * Package Service Providers...
@@ -194,6 +177,10 @@ return [
         // App\Providers\BroadcastServiceProvider::class,
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
+        Collective\Html\HtmlServiceProvider::class,
+        \Torann\GeoIP\GeoIPServiceProvider::class,
+        Stevebauman\Location\LocationServiceProvider::class,
+        'Barryvdh\Debugbar\ServiceProvider',
 
     ],
 
@@ -209,7 +196,12 @@ return [
     */
 
     'aliases' => Facade::defaultAliases()->merge([
-        // 'ExampleClass' => App\Example\ExampleClass::class,
+        'FormBuilder' => Kris\LaravelFormBuilder\Facades\FormBuilder::class,
+        'Form'        => Collective\Html\FormFacade::class ,
+        'Location' => 'Stevebauman\Location\Facades\Location',
+        'GeoIP' => \Torann\GeoIP\Facades\GeoIP::class, 
+        'Datatables'  => yajra\Datatables\Datatables::class ,
+        'Debugbar' => 'Barryvdh\Debugbar\Facade',
     ])->toArray(),
 
 ];
