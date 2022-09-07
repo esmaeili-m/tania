@@ -19,7 +19,7 @@ return new class extends Migration
             $table->string('category');
             $table->string('status')->default(1);
             $table->string('image');
-            $table->string('description');
+            $table->text('description');
             $table->softDeletes();
             $table->timestamps();
         });

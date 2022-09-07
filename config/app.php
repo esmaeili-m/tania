@@ -164,6 +164,7 @@ return [
         Illuminate\Validation\ValidationServiceProvider::class,
         Illuminate\View\ViewServiceProvider::class,
         Kris\LaravelFormBuilder\FormBuilderServiceProvider::class,
+        Stevebauman\Location\LocationServiceProvider::class,
 
         /*
          * Package Service Providers...
@@ -181,7 +182,7 @@ return [
         \Torann\GeoIP\GeoIPServiceProvider::class,
         Stevebauman\Location\LocationServiceProvider::class,
         'Barryvdh\Debugbar\ServiceProvider',
-
+        
     ],
 
     /*

@@ -11,8 +11,7 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
         <link href="{{asset('home/css/responsive.css')}}" rel="stylesheet">
-        <!--[if lt IE 10]><link href="css/ie.css" rel="stylesheet"><![endif]-->
-        <!--[if lt IE 9]><script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+        <link href="{{asset('home/css/ie.css')}}" rel="stylesheet">
         <!--[if lt IE 9]><script src="{{asset('home/js/respond.js')}}"></script><![endif]-->
     </head>
 </div>

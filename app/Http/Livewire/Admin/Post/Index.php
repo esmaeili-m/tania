@@ -2,6 +2,7 @@
 
 namespace App\Http\Livewire\Admin\Post;
 
+use App\Models\Position;
 use App\Models\Post;
 use Livewire\Component;
 use Livewire\WithFileUploads;
@@ -13,6 +14,7 @@ class Index extends Component
     use WithPagination;
     protected $paginationTheme = 'bootstrap';
     public $search;
+    public $position;
     public function statusDisable($id)
     {
         $post = Post::find($id);
@@ -26,7 +28,16 @@ class Index extends Component
 //        ]);
         $this->emit('toast', 'success', 'وضعیت پست با موفقیت غیرفعال شد.');
     }
-
+    public function Position(){
+            $pos=Position::latest()->take(1);
+            if (count($pos->get())>0){
+                    $pos->update(['position'=>$this->position]);
+            }else{
+                Position::create([
+                    'position'=>$this->position,
+                ]);
+            }
+    }
     public function statusEnable($id)
     {
 

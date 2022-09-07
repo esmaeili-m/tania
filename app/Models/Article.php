@@ -17,6 +17,7 @@ class Article extends Model
       'date',
       'status',
       'image',
+      'image2',
     ];
     use SoftDeletes;
     use HasFactory;

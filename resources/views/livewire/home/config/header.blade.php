@@ -1,4 +1,4 @@
-<div>
+
     <header class="main-header header-style-one">
 
         <!-- Header Container -->
@@ -31,14 +31,14 @@
                             <li><a href="portfolio.html">category</a>
                                 <ul>
                                     @foreach(\App\Models\Category::where('status',1)->pluck('name') as $i)
-                                        <li><a href="portfolio.html">{{$i}}</a></li>
+                                        <li><a href="{{route('categories',$i)}}">{{$i}}</a></li>
                                     @endforeach
                                 </ul>
                             </li>
-                            <li class="dropdown"><a href="blog.html">products</a></li>
-                            <li class="dropdown"><a href="blog.html">Articles</a></li>
-                            <li><a href="about.html">About</a></li>
-                            <li><a href="contact.html">Contact</a></li>
+                            <li class="dropdown"><a href="/products">products</a></li>
+                            <li><a href="/articles">Articles</a></li>
+                            <li><a href="/about">About</a></li>
+                            <li><a href="/contact">Contact</a></li>
                         </ul>
                     </div>
                 </nav><!-- Main Menu End-->
@@ -47,4 +47,4 @@
         </div><!-- Header Container End-->
 
     </header>
-</div>
+

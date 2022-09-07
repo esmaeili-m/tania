@@ -19,6 +19,7 @@
                                     <th>pinterest</th>
                                     <th>email</th>
                                     <th>phone</th>
+                                    <th>آدرس</th>
                                     <th>وضعیت</th>
                                     <th>عملیات</th>
                                 </tr>
@@ -35,6 +36,7 @@
                                         <td>{{$social['pinterest']}}</td>
                                         <td>{{$social['email']}}</td>
                                         <td>{{$social['phone']}}</td>
+                                        <td>{{$social['address']}}</td>
                                         <td>
                                             @if($social['status']==0)
                                                 <a href="#" wire:click="statusEnable({{$social['id']}})">
@@ -91,7 +93,22 @@
                                             </div>
                                             @enderror
                                         </div>
-                                    </div><div class="mt-3 col-sm-12">
+                                    </div>
+                                    <div class="mt-3 col-sm-12">
+                                        <div class="form-group">
+                                            <div class="form-line">
+                                                <label>آدرس </label>
+                                                <input wire:model.lazy="socialMedia.address" name="name" type="text" class="form-control" placeholder="ادرس را وارد کنید">
+                                                <span class="error"></span>
+                                            </div>
+                                            @error('category.name')
+                                            <div class="alert alert-danger">
+                                                {{ $message }}
+                                            </div>
+                                            @enderror
+                                        </div>
+                                    </div>
+                                    <div class="mt-3 col-sm-12">
                                         <div class="form-group">
                                             <div class="form-line">
                                                 <label>آدرس واتساپ</label>

@@ -23,6 +23,7 @@ class Index extends Component
         'socialMedia.email'=>'nullable',
         'socialMedia.phone'=>'nullable',
         'socialMedia.status'=>'nullable',
+        'socialMedia.address'=>'nullable',
     ];
 
 

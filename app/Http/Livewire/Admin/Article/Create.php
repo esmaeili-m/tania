@@ -10,6 +10,7 @@ use Livewire\WithFileUploads;
 class Create extends Component
 {
     public $image;
+    public $image2;
     use WithFileUploads;
     public Article $article;
     public function mount()
@@ -21,12 +22,17 @@ class Create extends Component
         'article.title'=>'required',
         'article.category'=>'required',
         'article.subcategory'=>'nullable',
+        'image'=>'required',
+        'image2'=>'nullable',
     ];
 
     public function createarticle(){
         $this->validate();
         $this->article->date=Verta()->format('Y/m/d');
         $this ->article->image=$this->uploadImage();
+        if($this->image2){
+            $this ->article->image2=$this->uploadImage2();
+        }
         $this->article->save();
 //        Log::create([
 //            'user_id'=>auth()->user()->id,
@@ -44,6 +50,16 @@ class Create extends Component
         $directory="article/$year/$month/$day/$second";
         $name=$this->image->getClientOriginalName();
         $this->image->storeAs($directory,$name);
+        return "$directory".'/'."$name";
+    }
+    public function uploadImage2(){
+        $year=now()->year;
+        $month=now()->month;
+        $day=now()->day;
+        $second=now()->second;
+        $directory="article/$year/$month/$day/$second";
+        $name=$this->image2->getClientOriginalName();
+        $this->image2->storeAs($directory,$name);
         return "$directory".'/'."$name";
     }
     public function render()

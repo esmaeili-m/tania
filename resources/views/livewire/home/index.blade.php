@@ -1,4 +1,5 @@
 @section('title','home')
+
 <div>
     <section class="main-slider style-one">
         <!--Slider COntainer-->
@@ -241,4 +242,76 @@
 
         </div>
     </section>
+    <section class="default-blog-section">
+        <div class="auto-container">
+            <div class="title-box text-center">
+                <h3 class="small-text">OUR ARTICLES</h3>
+                <h2>Our latest news and articles</h2>
+            </div>
+
+            <!--Default Blog Post / Style One-->
+            @foreach($article as $i)
+                @if($counter !==1)
+            <article class="default-post-style blog-post style-one left-aligned">
+                <div class="row clearfix">
+                    <div class="col-md-7 col-sm-12 col-xs-12 image-column">
+                        <div class="clearfix">
+                            <figure class="blog-image wow fadeInLeft" data-wow-duration="1500ms" data-wow-delay="0ms"><img src="{{'storage/'. $i['image2']}}" alt=""></figure>
+                        </div>
+                    </div>
+                    <div class="col-md-5 col-sm-12 col-xs-12 content-column padd-top-50">
+                        <div class="default-content-box wow fadeInRight" data-wow-duration="1500ms" data-wow-delay="0ms">
+                            <div class="default-post-title">
+                                <h3><a href="#">{{$i['title']}}</a></h3>
+                            </div>
+                            <div class="content-box">
+                                <div class="default-post-info"><a href="#">{{$i['created_at']->format('Y-m-d')}}</a></div>
+                                <div class="text">
+                                   {!! substr($i['description'],0,120) !!}
+                                </div>
+                            </div>
+                            <div class="link-box"><a href="#" class="theme-btn read-more">READ MORE</a></div>
+
+                        </div>
+                    </div>
+                </div>
+            </article>
+                    @else
+
+                    <article class="default-post-style blog-post style-one right-aligned">
+                        <div class="row clearfix">
+                            <div class="col-md-7 col-sm-12 col-xs-12 image-column pull-right">
+                                <div class="clearfix">
+                                    <figure class="blog-image wow fadeInRight" data-wow-duration="1500ms" data-wow-delay="0ms"><img src="{{'storage/'. $i['image2']}}" alt=""></figure>
+                                </div>
+                            </div>
+                            <div class="col-md-5 col-sm-12 col-xs-12 content-column padd-top-50">
+                                <div class="default-content-box text-right wow fadeInLeft" data-wow-duration="1500ms" data-wow-delay="0ms">
+                                    <div class="default-post-title">
+                                        <h3><a href="#">{{$i['title']}}</a></h3>
+                                    </div>
+                                    <div class="content-box">
+                                        <div class="default-post-info"><a href="#">{{$i['created_at']->format('Y-m-d')}}</a></div>
+                                        <div class="text">
+                                            {!! substr($i['description'],0,120) !!}
+                                        </div>
+                                    </div>
+                                    <div class="link-box"><a href="#" class="theme-btn read-more">READ MORE</a></div>
+
+                                </div>
+                            </div>
+                        </div>
+                    </article>
+                @endif
+                <?php
+                    $counter++
+                ?>
+            @endforeach
+            <!--Default Blog Post / Style One-->
+        </div>
+
+        <div class="link-box text-center padd-right-20"><a href="#" class="theme-btn btn-style-one">GO TO OUR BLOG</a></div>
+    </section>
+    <div class="scroll-to-top"><span class="icon fa fa-long-arrow-up"></span></div>
+
 </div>

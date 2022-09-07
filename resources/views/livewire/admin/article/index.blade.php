@@ -42,6 +42,7 @@
                                     <th>آیدی</th>
                                     <th>نام مقاله</th>
                                     <th>تصویر</th>
+                                    <th>تصویر دوم</th>
                                     <th> دسته بندی</th>
                                     <th>زیر دسته</th>
                                     <th>توضیحات</th>
@@ -55,6 +56,7 @@
                                         <th scope="row">{{$i['id']}}</th>
                                         <td>{{$i['title']}}</td>
                                         <td class="table-img sorting_1"><img width="80px" src="{{url('storage/'.$i->image)}}" alt="{{$i['title']}}"></td>
+                                        <td class="table-img sorting_1"><img width="80px" src="{{url('storage/'.$i->image2)}}" alt="{{$i['title']}}"></td>
 
                                         <td>
                                             @if($i['category']== null)

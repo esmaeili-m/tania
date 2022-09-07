@@ -13,6 +13,13 @@ use Illuminate\Support\Facades\Route;
 |
 */
 Route::get('/', \App\Http\Livewire\Home\Index::class)->name('home');
+Route::get('/home/category/{product}', \App\Http\Livewire\Home\Categories\Show::class)->name('home.category');
+Route::get('/categories/{category}', \App\Http\Livewire\Home\Category\Index::class)->name('categories');
+Route::get('/contact', \App\Http\Livewire\Home\Contact\Index::class)->name('contact');
+Route::get('/about', \App\Http\Livewire\Home\About\Index::class)->name('about');
+Route::get('/products', \App\Http\Livewire\Home\Products\Index::class)->name('products');
+Route::get('/articles', \App\Http\Livewire\Home\Article\Index::class)->name('articles');
+Route::get('/articles/{title}', \App\Http\Livewire\Home\Article\Show::class)->name('articles.show');
 Route::prefix('admin')->group(function () {
 //------------------------------------------------------------------------------------------------------------------------------>dashboard
     Route::get('/dashboard',\App\Http\Livewire\Admin\Dashboard\Index::class)->name('dashboard');
@@ -48,4 +55,7 @@ Route::prefix('admin')->group(function () {
    Route::get('/postSlider/create',App\Http\Livewire\Admin\PostSlider\Create::class)->name('postSlider.create');
    Route::get('/postSlider/update/{postSlider}',App\Http\Livewire\Admin\PostSlider\Update::class)->name('postSlider.update');
    Route::get('/postSlider/trash',App\Http\Livewire\Admin\PostSlider\Trash::class)->name('postSlider.trash');
+//------------------------------------------------------------------------------------------------------------------------------------>message
+    Route::get('/message',App\Http\Livewire\Admin\Home\message\Index::class)->name('message');
+
 });

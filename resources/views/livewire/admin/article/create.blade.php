@@ -95,12 +95,38 @@
                                             <div class="file-path-wrapper">
                                                 <input wire:model.laze="image" class="file-path validate" type="text">
                                             </div>
+                                            @error('image')
+                                            <div class="alert alert-danger">
+                                                {{ $message }}
+                                            </div>
+                                            @enderror
                                         </div>
                                     </div>
                                     <div class="col-lg-4 col-md-4 col-sm-8 col-xs-7">
                                         @if ($image)
                                             <div style="border:1px solid #25aae1">
                                                 <img src="{{ $image->temporaryUrl() }}">
+                                            </div>
+                                        @endif
+                                    </div>
+                                    <div class="col-lg-2 col-md-2 col-sm-4 col-xs-5 form-control-label">
+                                        <label for="email_address_2"> تصویر صفحه اصلی</label>
+                                    </div>
+                                    <div class="col-lg-6 col-md-6 col-sm-8 col-xs-7">
+                                        <div class="file-field input-field">
+                                            <div class="btn">
+                                                <span>ابعاد فایل 500*670 </span>
+                                                <input type="file" wire:model.laze="image2">
+                                            </div>
+                                            <div class="file-path-wrapper">
+                                                <input wire:model.laze="image2" class="file-path validate" type="text">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-4 col-md-4 col-sm-8 col-xs-7">
+                                        @if ($image2)
+                                            <div style="border:1px solid #25aae1">
+                                                <img src="{{ $image2->temporaryUrl() }}">
                                             </div>
                                         @endif
                                     </div>

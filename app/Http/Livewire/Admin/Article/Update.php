@@ -11,6 +11,7 @@ class Update extends Component
 {
     use WithFileUploads;
     public $image;
+    public $image2;
     public Article $article;
     protected $rules=[
         'article.description'=>'required' ,
@@ -23,6 +24,9 @@ class Update extends Component
         if ($this->image) {
             $this->article->image = $this->uploadImage();
         }
+        if ($this->image2) {
+            $this->article->image2 = $this->uploadImage2();
+        }
         $this ->article->update($this->validate());
         return redirect(route('article'));
     }
@@ -34,6 +38,16 @@ class Update extends Component
         $directory="article/$year/$month/$day/$second";
         $name=$this->image->getClientOriginalName();
         $this->image->storeAs($directory,$name);
+        return "$directory".'/'."$name";
+    }
+    public function uploadImage2(){
+        $year=now()->year;
+        $month=now()->month;
+        $day=now()->day;
+        $second=now()->second;
+        $directory="article/$year/$month/$day/$second";
+        $name=$this->image2->getClientOriginalName();
+        $this->image2->storeAs($directory,$name);
         return "$directory".'/'."$name";
     }
     public function render()

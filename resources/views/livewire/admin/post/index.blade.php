@@ -3,7 +3,7 @@
     <section class="content">
         <div class="container-fluid">
             <div class="row clearfix">
-                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                <div class="col-lg-9 col-md-9 col-sm-12 col-xs-12">
                     <div class="card">
                         <div class="header">
                             <h2>پست ها</h2>
@@ -88,6 +88,33 @@
                         </div>
                     </div>
                 </div>
+                <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12">
+                    <div class="card">
+                        <div class="header">
+                            <h2>چیدمان پست ها</h2>
+                            <form wire:submit.prevent="Position">
+
+                                <div class="row clearfix">
+                                    <div class="col-md-12">
+                                        <div wire:ignore class="input-field col s12">
+                                            <select wire:model.lazy="position">
+                                                <option value="null" disabled selected>چیدمان </option>
+                                                <option value="1" >چیدمان اول</option>
+                                                <option value="2">چیدمان دوم</option>
+                                                <option value="3">چیدمان سوم</option>
+                                                <option value="4">چیدمان چهارم</option>
+                                            </select>
+
+                                        </div>
+                                    </div>
+                                    <button class="btn-hover color-8">ثبت</button>
+                                </div>
+                            </form>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
             </div>
         </div>
     </section>
